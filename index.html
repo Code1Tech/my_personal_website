@@ -15,7 +15,7 @@
         <script>snowStorm.excludeMobile = false;</script>
         <div class="hero hidden">
             <div class="hero-content">
-                <img src="pfp.png" alt="pfp" class="pfp" draggable="false" width="250" height="300" />
+                <img src="pfp.png" alt="pfp" class="pfp" draggable="false" width="250" height="300" id="cat?" />
                 <h1 class="title">focat</h1>
                 <p>a 14 yr old dev with 7+ years<br>of programming experience.</p>
                 <p>🎂 - apr. 8th</p><br>
@@ -104,6 +104,10 @@
                 document.body.style.backgroundRepeat = "no-repeat";
                 document.body.style.backgroundAttachment = "fixed";
                 document.body.style.backgroundPosition = "center";
+            }
+
+            document.getElementById("cat?").onclick = function () {
+                window.location.href = "/cat";
             }
         </script>
     </body>
