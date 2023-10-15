@@ -1,0 +1,187 @@
+/*
+    Want to use this CSS for your own website?
+    Contact me at focat@focat.me
+    This content is DMCA protected.
+*/
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+audio {
+    display: none;
+}
+  
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+  
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+}
+  
+#buttons {
+    background: none;
+    border: none;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.notification {
+	position: absolute;
+	top: 5%;
+	left: 50%;
+	transform: translate(-50%, 0);
+	width: 10%;
+	height: 50px;
+	background-color: rgba(0, 0, 0);
+	border-radius: 5px;
+
+	border: 1px solid #ccc;
+    display:none;
+}
+.notification .volumepercent {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+  
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #000;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'DM Sans', sans-serif;
+
+    transform-style: preserve-3d;
+    transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.1);
+
+    /* Add transition for smooth animation */
+    transition: all 0.4s ease-in-out;
+}
+.button:hover {
+    transform: scale(1.1);
+    background: rgba(12, 12, 44, 0.603);
+    border-radius: 4px;
+    box-shadow: 0 0 3px #ccc;
+    text-decoration: none;
+
+    transform: rotateX(calc(-10deg + var(--rotate-x) * 0.2deg)) rotateY(calc(10deg - var(--rotate-y) * 0.2deg));
+}
+
+.centered > img {
+    display: block;
+    margin: 0 auto;
+    width: 35%;
+    max-width: 100%;
+    height: auto;
+    
+    border-radius: 50%;
+    border: 3px solid #ccc;
+    box-shadow: 0 0 3px #ccc;
+    object-fit: cover;
+
+    margin-bottom: 0;
+}
+  
+#copyright {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    font-family: 'DM Sans', sans-serif;
+} 
+  
+.main {
+    text-align:left;
+    display: block;
+}
+  
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.8;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hidden {
+    display: none;
+}
+
+.title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 62px;
+    text-align: center;
+    color: #fff;
+}
+.subtitle {
+    margin-top: 0;
+    padding-bottom: 5px;
+    font-size: 18px;
+    text-align: center;
+    color: #ccc;
+}
+
+a {
+    color: #151731;
+    text-decoration: underline;
+}
+a:hover {
+    color: #151731;
+    text-decoration: underline;
+}
+
+.overlay-message {
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+}
+.overlay-title {
+    margin-bottom: 0;
+}
+.overlay-subtitle {
+    margin-top: 0;
+}
+
+.cursor {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid black;
+    border-radius: 5px;
+    pointer-events: none;
+    transition: all 0.2s ease-out;
+    background-color: transparent;
+    transform: scale(0.9);
+}
+.cursor.active {
+    transform: scale(1.1);
+}

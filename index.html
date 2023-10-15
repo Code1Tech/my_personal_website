@@ -1,0 +1,122 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans&amp;display=swap">
+        <link rel="stylesheet" href="style.css">
+        <title>focat.me</title>
+        
+        <meta name="theme-color" content="#000000">
+        <meta name="description" content="focat.me">
+        <meta name="keywords" content="focat, focat.me, focatme, focat me, focat.me">
+        <meta name="author" content="focat">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="focat.me">
+        <meta property="og:description" content="focat.me">
+        <meta property="og:url" content="https://focat.me">
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="focat.me">
+
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/gh/foobar404/wave.js/dist/bundle.js"></script>
+    </head>
+    <body onclick="startmusic();">
+        <script src="script.js"></script>
+
+        <span class="cursor"></span>
+        <script>
+            // make cursor smoothly follow mouse
+            var cursor = $(".cursor");
+            var cWidth = 20;
+            var cHeight = 20;
+            var delay = 10;
+            var mouseX = 0;
+            var mouseY = 0;
+            var posX = 0;
+            var posY = 0;
+
+            $(document).mousemove(function(e) {
+                mouseX = e.pageX;
+                mouseY = e.pageY;
+            });
+
+            function animate() {
+                posX += (mouseX - posX) / delay;
+                posY += (mouseY - posY) / delay;
+
+                cursor.css("left", posX - cWidth / 2 + "px");
+                cursor.css("top", posY - cHeight / 2 + "px");
+
+                requestAnimationFrame(animate);
+            }
+
+            animate();
+
+            // scale cursor on click
+            $(document.body).click(function() {
+                cursor.addClass("active");
+                setTimeout(function() {
+                    cursor.removeClass("active");
+                }, 200);
+            });
+        </script>
+
+        <div class="main">
+            <div class="notification">
+                <div class="volumepercent">
+                    <span>0%</span>
+                </div>
+            </div>
+            <div class="centered">
+                <h2 style="margin-bottom: -2px;">focat</h2>
+                <li>full stack developer</li>
+                <li>discord bot developer</li>
+                <li>ui/ux designer</li>
+                <li>i excel in python, js, luau, html, css, c# and a bit of c++</li>
+                <span style="font-size:10px; color:#ccc;" id="tip">pssttt... click anywhere for music</span>
+                <span style="font-size:10px; color:#ccc; display:none;" id="tipreplace">yay!!</span>
+                <br>
+                <h2 style="margin-bottom: -2px;">projects</h2>
+                <li><a href="https://discord.gg/tgDTQbyB3A" target="_blank">varity dhc</a> - a dhc dropping service</li>
+                <li><a href="https://turboclicker.repl.co/" target="_blank">turboclicker</a> - an autoclicker with nice ui and cool features</li>
+                <li><a href="https://discord.gg/aD9k4gYrAh" target="_blank">freecord</a> - a discord bot service that will always be free for everyone to use, coming back soon</li>
+                <br>
+                <h2 style="margin-bottom: -2px;">socials</h2>
+                <li><a href="https://github.com/Code1Tech" target="_blank">github</a></li>
+                <li><a href="https://discord.com/users/676960182621962271" target="_blank">discord</a></li>
+                <li><a href="https://www.roblox.com/users/114830245/profile" target="_blank">roblox</a></li>
+                <li><a href="https://www.youtube.com/@focat" target="_blank">youtube</a></li>
+            </div>
+
+            <div id="copyright">
+                <!--<span id="copyright-text">built with ❤️ by focat</span>-->
+                <a href="//www.dmca.com/Protection/Status.aspx?ID=9ea928e0-bf65-4af3-916f-b0ff907d8e76" title="DMCA.com Protection Status" class="dmca-badge" target="_blank"> <img src ="https://images.dmca.com/Badges/dmca-badge-w100-5x1-07.png?ID=9ea928e0-bf65-4af3-916f-b0ff907d8e76"  alt="DMCA.com Protection Status" /></a>  <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script>
+            </div>
+            
+
+            <!-- move the canvas to the bottom left -->
+            <canvas id="canvasElmId" onclick="startmusic()"; width="3000", height="1000" style="position: absolute; bottom: 0; left: 0; z-index: -1;"></canvas>
+
+            <script>
+                let audioElement = new Audio("audio.mp3");
+                audioElement.style.display = "none";
+                audioElement.preload = true;
+                let canvasElement = document.querySelector("#canvasElmId");
+                let wave = new Wave(audioElement, canvasElement);
+                function startmusic() {
+                    // bar animation
+                    wave.addAnimation(new wave.animations.Lines({
+                        speed: 1,
+                        amplitude: 100,
+                        lineWidth: 1,
+                        spacing: 0.3,
+                        color: "rgba(255, 255, 255, 0.5)",
+                        opacity: 1,
+                    }));
+                    audioElement.play();
+
+                    $("#tip").fadeOut(1000);
+                    $("#tipreplace").fadeIn(3500);
+                }
+            </script>
+        </div>
+    </body>
+</html>
